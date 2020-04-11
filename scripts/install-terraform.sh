@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
+TERRAFORM_VERSION = $(cat .terraform-version)
+
 mkdir ~/bin
-wget https://releases.hashicorp.com/terraform/$(cat ../.terraform-version)/terraform_$(cat ../.terraform-version)_linux_amd64.zip
-unzip terraform_$(cat ../.terraform-version)_linux_amd64.zip
+wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 mv terraform ~/bin
