@@ -5,9 +5,13 @@ env:
         - AWS_ACCESS_KEY_ID=AKIARJ2WXFP2V74VOKNC
         # AWS_SECRET_ACCESS_KEY
         - secure: "fnYZu/0j3pm5w9X6GeC+7Td5X74b0L6E8UlX4Frfn/T31zsJW9aPZTWb24TaJRRUjyljw2C3QaXkDsbUbRQJuxhN6ZWvDIdj4RIPFyjNDCwiH5FMqjy5dRaXTyFo+S+bkt1uCXxbFDmHLKNpH+xzmwAopcfJNnWErlhiZxE1zpXbN3DLV4amdeBFzb5eZ8ZsgNbXBBICOzSDdFCE+IBWm/ls+BJ0ed08DlsMGK05yn0u1r8h81DmWKzCRKWIDkUxjIG8vT/zCao3NkxaUQMkws7i9qT5b58l/70u1gem06VRGAv7KeKMgGwDGvKbWOJ6VWZoTi3ks6FUK1efgUnUeLV5EDXz0pESpOfeHV3n1mrozhObMNUUrQ3yLJ5tswuN81ajRrNnl6x9EtwKqoaBj9Q17wHN5QoRvCss5z+ccLkMZlGeWK21GgWAJQZ5FIGSJlk0JWWwLvqYYzRIy9jvlnB8amLvsNqkjkRiDLVTsdYWnu41xFeR5H6JhsLy9ZQNMv9S1s5SegseJc66Zr7NT8ut0+hqaR4HTacpyG0+/ou5JN4Bmd0ojdX9QPUcPt8Pc6+4mfoB2eLIzgNPt+MkOuC5ftwHSjyqqaSv5cTAfK2ZvIlNVPMy1F29D+8JhXGNUxzFgwEJG9V/X26bFMldkFaFzfCq2pf9XUobVQ4r0yc="
+        - HEROKU_EMAIL=barteq93@gmail.com
+        # HEROKU_API_KEY
+        - secure: "U9z4q6Bzu5PWyPK4aVgvRnRXmIEPl0px6USHcj77QUyowzpkiepHPaDDthkEpBSuE26Y/3uAwFJ7UgZdUXumJ2VZ8KsHjrgFwtnO8N1tK1IgSETWh6k57DSCKagzLCq5jRWU+/imxfdm7IucDl7KQQzxHoxC29NvzzcmsbSaLUJQDlIiJm273ouvNhe/bmrbs7TA3RwGZkhyQ7vSp63P6hUNlpEy4ZFHCT2x6uXQYYFh44nUyj7m7Ja0VzA/P0LDjh9qkmbIO1IPd+8osABytoE1TQ+Ze+C4r5bCfwtPLwN63o60tzEjlJhErKpneNr9QMHkTi5zYuwUPiLQQfbMZOLmH4GBugxrOnuP/hvk4sdlkjKKFTaLuMTbrB7BGLVQtpRsFuSh4VXJSfxk2GenDblvq8p9MfM9r3cvzQYqal9iG8N0WG/yk/HYSxyH1vzgwsyZkbGD+wbq9jxs7sUuXywWiU8BxsowWw5dwVXjOTSjNEF05Zs3oBIzjI/6kNlrtEwbkxR5tK/QtA89J2Lww6J1pvUgrEjZI/p7irt73pj7T+iBWteg5M1fDIcAUNA1kFVi7BQ+kaHK7Up2cfRsbNwLH8aS5+zETRVl89bIhntDewgWlYAjMq3AP55kpQdlwnBkhPdPWkLSoVyYWH+NSV52Rwjpk84xR5v9sRYcz30="
 
 script:
     - ./scripts/install-terraform.sh
     - terraform init infrastructure/heroku
     - terraform workspace switch staging
     - terraform plan infrastructure/heroku
+    - terraform apply infrastructure/heroku
